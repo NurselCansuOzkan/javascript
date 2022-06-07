@@ -1,10 +1,12 @@
+//Belirlenen saniye bekler, ve sonra çalışır
 setTimeout(()=>{
     console.log("Merhaba");
 },5000)
 
-setInterval(()=>{
-    console.log("Ben her saniye çalışacağım")
-},1000);
+//Durdurulmadığı sürece her saniye çalışır
+// setInterval(()=>{
+//     console.log("Ben her saniye çalışacağım")
+// },1000);
 
 const sayHi = (cb) =>{
     cb();
@@ -13,7 +15,7 @@ sayHi(()=>{
     console.log("Hello");
 });
 
-
+//fetch kullanarak async-await kullanımı
 import fetch from "node-fetch";
 fetch("https://jsonplaceholder.typicode.com/users")
 .then((data) =>data.json())
@@ -35,7 +37,7 @@ async function getData(){
 
 getData();
 
-
+//axios kullanarak async-await kullanımı
 import axios from "axios";
 (async ()=>{
     const users = await (await fetch("https://jsonplaceholder.typicode.com/users")).json();
@@ -70,6 +72,7 @@ getComments(2)
 .catch((e)=>console.log(e));
 
 
+//Promise kullanımı
 const getUsers = (number) =>{
     return new Promise(async (resolve,reject)=>{
         // console.log("Users");
@@ -89,13 +92,13 @@ const getPosts = (post_id) => {
     });
 }
 
-getUsers(2)
-    .then((data)=>console.log(data))
-    .catch((e)=>console.log(e));
+// getUsers(2)
+//     .then((data)=>console.log(data))
+//     .catch((e)=>console.log(e));
 
-getPosts(1)
-    .then((data)=>console.log(data))
-    .catch((e)=>console.log(e))
+// getPosts(1)
+//     .then((data)=>console.log(data))
+//     .catch((e)=>console.log(e))
 
 (async ()=>{
     try{
